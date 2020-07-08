@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>B_Module</title>
+	<link rel="stylesheet" href="/style.css">
+	<script src="jquery-3.4.1.min.js"></script>
+	<script src="jquery-ui.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<header>
+		<div class="header-container">
+			<img src="logo.png" alt="logo img" id="logo" title="로고 이미지">
+			<nav>
+				<li class="active"><a href="#">홈</a></li>
+				<li><a href="#">온라인 집들이</a></li>
+				<li><a href="#">스토어</a></li>
+				<li><a href="#">전문가</a></li>
+				<li><a href="#">시공 후기</a></li>
+			</nav>
+
+			<div class="sign-box">
+				<button id="join">
+					<i class="fa fa-user"></i>
+					회원가입
+				</button>
+				<button id="login">
+					<i class="fa fa-lock"></i>
+					로그인
+				</button>
+			</div>
+			<div class="mobile-nav-btn">
+				<i class="fa fa-bars"></i>
+			</div>
+			<div class="mobile-nav">
+				<li class="mobile-active"><a href="#">홈</a></li>
+				<li><a href="#">온라인 집들이</a></li>
+				<li><a href="#">스토어</a></li>
+				<li><a href="#">전문가</a></li>
+				<li><a href="#">시공 견적</a></li>
+			</div>
+		</div>
+
+	</header>
+
+	<section id="screen">
+		<div class="screen-inner">
+			<div class="screen-left">
+				<div class="screen-search">
+					<i class="fa fa-search"></i>
+					<input type="text" id="search-input" placeholder="검색">
+				</div>
+
+				<div class="item-list">
+					
+				</div>
+
+				<div class="basket">이곳에 상품을 넣어주세요.</div>
+			</div>
+
+			<div class="screen-right">
+				<div class="screen-right-top">
+					
+				</div>
+
+				<div class="screen-right-bottom">
+					<p class="purchase-total">15,000,000원</p>
+					<button id="buy_btn">
+						구매하기
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		Copyright (C) 2020 by MyHome Inc All Rights Reserved.
+	</footer>
+</body>
+</html>
