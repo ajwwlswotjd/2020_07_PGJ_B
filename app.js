@@ -1,6 +1,4 @@
 const log = console.log;
-
-
 window.addEventListener("load",()=>{
 	$.getJSON("store.json",(e)=>{
 		let list = [];
@@ -92,8 +90,66 @@ class App {
 			}
 		});
 
-		$(document).on("click",".popup-close",(e)=>{
-			let
+		document.querySelector(".pc-close").addEventListener("click",(e)=>{
+			$(".pc-popup").fadeOut();
+			$(".pc-popup input").val("");
+		});
+
+		document.querySelector("#pc-btn").addEventListener("click",(e)=>{
+			document.querySelector(".pc-close").click();
+			$(".ysj-popup").fadeIn();
+			document.querySelector(".ysj-popup .ysj-container .div-wrapper").innerHTML = "";
+			let canvas = document.createElement("canvas");
+			let ctx = canvas.getContext("2d");
+			let height = this.basket.length*16+140;
+			let width = 400;
+			let top = 30;
+			canvas.height = height;
+			canvas.width = width;
+			ctx.textAlign = "center";
+			ctx.textBaseline = "top";
+			ctx.strokeStyle = "#333030";
+			ctx.fillStyle = "#fff";
+			ctx.fillRect(0,0,width, height);
+			ctx.font = "25px Arial";
+			ctx.fillStyle = "#333030";
+			ctx.fillText("구매 내역서",width/2,top);
+			top += 30;
+			ctx.beginPath();
+			ctx.moveTo(40,top);
+			ctx.lineTo(width-40,top);
+			ctx.closePath();
+			ctx.stroke();
+			ctx.font = "12px Arial";
+			top += 10;
+			this.basket.forEach(x=>{
+				let text = `${x.name} | ${x.price}원 | ${x.cnt}개 | ${x.total.toLocaleString()}원`;
+				ctx.fillText(text,width/2,top);
+				top+=16;
+			});
+			top+=6;
+			ctx.beginPath();
+			ctx.moveTo(40,top);
+			ctx.lineTo(width-40,top);
+			ctx.closePath();
+			ctx.stroke();
+			top+=10;
+			ctx.font = "13px Arial";
+			let date = new Date();
+			let today = `${date.getFullYear()}년 ${date.getMonth()+1}월 ${date.getDate()}일 ${date.getHours()}시 ${date.getMinutes()}분 ${date.getSeconds()}초`;
+			ctx.fillText(today,width/2,top);
+			ctx.font = "17px Arial";
+			top += 20;
+			let totalText = "총 합계 : "+this.calcTotal().toLocaleString()+"원";
+			ctx.fillText(totalText,width/2,top);
+			document.querySelector(".ysj-container > .div-wrapper").appendChild(canvas);
+		});	
+
+		document.querySelector(".ysj-close").addEventListener("click",(e)=>{
+			$(".ysj-popup").fadeOut();
+			this.basket = [];
+			document.querySelector(".screen-right-top").innerHTML = "";
+			this.calcTotal();
 		});
 
 		document.querySelector("#buy_btn").addEventListener("click",(e)=>{

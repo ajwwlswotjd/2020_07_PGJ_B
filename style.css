@@ -478,3 +478,7 @@ footer {
 	color: #ddd;
 	cursor: pointer;
 }
+
+.ysj-popup {
+	display: none;
+}
