@@ -9,6 +9,28 @@
 	<script src="app.js"></script>
 </head>
 <body>
+	<div class="pc-popup popup">
+		<div class="popup-container pc-container">
+			<div class="div-wrapper">
+				<div class="pc-title">구매하기</div>
+				<div class="input-box">
+					<label for="pc-name">
+						이름
+					</label>
+					<input type="text" id="pc-name" placeholder="NAME">
+				</div>
+
+				<div class="input-box">
+					<label for="pc-address">
+						주소
+					</label>
+					<input type="text" id="pc-address" placeholder="ADDRESS">
+				</div>
+				<div id="pc-btn">구매완료</div>
+			</div>
+		</div>
+		<div class="popup-close">&times;</div>
+	</div>
 	<header>
 		<div class="header-container">
 			<img src="logo.png" alt="logo img" id="logo" title="로고 이미지">
@@ -53,7 +75,7 @@
 				</div>
 
 				<div class="item-list">
-					
+					<!-- <h1 class="no-exist">일치하는 상품이 없습니다.</h1> -->
 				</div>
 
 				<div class="basket">이곳에 상품을 넣어주세요.</div>
@@ -65,7 +87,9 @@
 				</div>
 
 				<div class="screen-right-bottom">
-					<p class="purchase-total">15,000,000원</p>
+					<p class="purchase-total">
+						총 합계 : <span>0</span>원
+					</p>
 					<button id="buy_btn">
 						구매하기
 					</button>
