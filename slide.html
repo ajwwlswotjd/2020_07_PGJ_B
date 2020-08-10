@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>2020 1학년 A모듈 슬라이더</title>
+
+	<style>
+		#slider {
+			width: 500px;
+			height: 500px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.slider-pannel {
+			width: 300%;
+			height: 100%;
+			position: absolute;
+			display: flex;
+			justify-content: space-between;
+			left: 0;
+			transition: left .4s;
+		}
+
+		.slider-pannel > .img {
+			width: calc(100% / 3);
+			height: 100%;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		#img1 {background-color: red}
+		#img2 {background-color: orange}
+		#img3 {background-color: yellow}
+	</style>
+</head>
+<body>
+	<!-- div#slider : 화면에 보여질 메인 슬라이더 -->
+	<div id="slider">
+		<!-- div.slider-pannel : 메인 슬라이더의 300% (3배 크기)를 가진 슬라이더 판넬 -->
+		<div class="slider-pannel">				
+			<!-- div.img : slidr-pannel의 (100% / 3) 크기 :: 33.333% ( div#slider 와 같은 크기 )  -->
+			<div class="img" id="img1">img1</div>
+			<div class="img" id="img2">img2</div>
+			<div class="img" id="img3">img3</div>
+		</div>
+	</div>
+
+	<!-- button.slider-btn 이전/다음 버튼으로 각각 data-num 을 가지고 있음 -->
+	<button class="left-btn slider-btn" data-num='-1'>이전</button>
+	<button class="right-btn slider-btn" data-num='1'>다음</button>
+
+	<script>
+		window.addEventListener("load",()=>{
+
+			let arr = [1, 2, 3, 2];
+			let idx = 0;
+
+			document.querySelectorAll(".slider-btn").forEach(x=>{
+
+				x.addEventListener("click",(e)=>{
+					let num = e.currentTarget.dataset.num*1;
+					idx += num;
+					if(idx >= arr.length) idx = 0;
+					if(idx <= -1) idx = arr.length-1;
+					let left = (arr[idx] - 1 ) * -100;
+					document.querySelector(".slider-pannel").style.left = left+"%";
+				});
+
+			});
+
+		});
+	</script>
+</body>
+</html>
