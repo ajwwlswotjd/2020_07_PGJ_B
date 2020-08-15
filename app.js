@@ -275,7 +275,7 @@ class App { // App
 		// 가상의 div 태그를 만들고
 		div.classList.add("item");
 		// item 이라는 클래스를 넣고
-		// innerHTML로 div 를 꾸며준다
+		// innerHTML로 div 를 꾸며준다.
 
 		let keyword = document.querySelector("#search-input").value;
 		// 하이라이팅 함수를 호출할수도 있으므로 keyword 변수를 미리 가지고 있는다.
